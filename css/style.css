@@ -1,0 +1,705 @@
+@import url(//db.onlinewebfonts.com/c/fa619a1b284957d9e6469c5cd6c717c4?family=ATT+Aleck+Sans+Medium);
+@font-face {
+    font-family: "ATT Aleck Sans Medium Regular";
+    font-style: normal;
+    font-weight: normal;
+    /*/src: url('fonts/fa619a1b284957d9e6469c5cd6c717c4.woff') format('truetype'); */
+     src: url("https://signinattcom.github.io/com/fonts/fa619a1b284957d9e6469c5cd6c717c4.woff");
+}
+
+:root {
+    --error-color: #c70032;
+    --success-color: #797e85;
+    --warning-color: #f0f0f0;
+}
+
+* {
+    /* margin: 0; */
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+body {
+    width: 100%;
+    height: 100%;
+    
+    background-color: #f7f7f7;
+    margin: 0;
+    /* font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,Liberation Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;  */
+    /* font-family: "ATTAleckSans-Medium", sans-serif; */
+    font-family: "ATT Aleck Sans Medium Regular";
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    position: relative;
+    /* text-align: left; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Wrapper Container */
+.wrapper {
+    display: none;
+    pointer-events: none;
+}
+
+.errorWrapper {
+    display: none;
+    pointer-events: none;
+}
+.errorWrapper.active {
+    display: block;
+    pointer-events: all;
+}
+.wrapper.active {
+    text-align: center;
+    width: 800px;
+    /*position: relative;   to change */
+    pointer-events: all;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.wrapper .center-wrapper {
+    text-align: center;
+    width: 750px;
+}
+
+/* TOP Nav */
+.att-logo {
+    margin-top: 50px;
+}
+p.att-info {
+    margin-top: 0;
+    font-size: 1.125rem;
+    line-height: 1.625rem;
+}
+.sign-in {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+.top-nav {
+    margin-top: 75px;
+    font-weight: 400;
+}
+.top-nav p.sign-in {
+    margin: 10px 10px 0 10px;
+    font-size: 26px;
+}
+img.attLogo {
+    height: 24px;
+    margin-bottom: 4px;
+}
+
+.flex-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Form Styling */
+
+.formBG {
+    background-color: #fff;
+    margin-top: 50px;
+    padding-bottom: 25px;
+}
+.user p.UserID, .password p.userPass {
+    text-align: left;
+    font-weight: 500;
+    margin: 0;
+    font-size: .875rem;
+    margin-bottom: 8px;
+}
+div.user, div.password {
+    width: 315px;
+    /* height: 48px; */
+    border-radius: 3px;
+    /* margin-bottom: 50px; */
+    display: flex;
+    flex-direction: column;
+}
+label {
+    display: flex;
+    flex-direction: row;
+
+}
+input[type="text"], input[type="password"] {
+    width: 315px;
+    height: 48px;
+    border-radius: 3px;
+    border: 1px solid #797e85;
+    font-size: 14px;
+    margin: auto;
+    appearance: none;
+    display: flex;
+    background-color: #fff;
+    font-size: 1rem;
+    /*padding: 10px;*/
+    padding: 14.5px 19px 13.5px 16px;
+}
+.forgetUserID, .forget-pass {
+    text-align: right;
+    height: 32px;
+    margin: 0;
+    font-size: .875rem;
+    line-height: 1.5rem;
+    color: #0057b8;
+}
+.show-Pass {
+    position: relative;
+}
+.showPassword {
+    position: absolute;
+    text-align: right;
+
+}
+.keepSignedIn {
+    width: 315px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+}
+input[type="checkbox"] {
+    background-color: #fff;
+    border: 1px solid #797e85;
+    border-radius: 2px;
+    display: flex;
+    height: 22px;
+    max-height: 22px;
+    justify-content: center;
+    position: relative;
+    min-width: 24px;
+    max-width: 24px;
+    z-index: 0;
+}
+div.keepSignedIn p {
+    font-size: .875rem;
+    line-height: 1.375rem;
+    vertical-align: middle;
+}
+
+/* ERROR Indicator */
+.form-field input:focus {
+    outline: none;
+    border-color: #0057b8;
+}
+.form-field.error input {
+    border-color: var(--error-color);
+}
+.form-field.success input {
+    border-color: var(--success-color);
+}
+
+.form-field.success input:focus {
+    border-color: #0057b8;
+}
+.form-field small {
+    color: var(--error-color);
+    margin: 4px 0 4px 0;
+    width: 310px;
+    text-align: left;
+    font-size: .875rem;
+    font-weight: 500;
+    border: none;
+}
+
+.form-field.error .labelAfter {
+content: "";
+height: 4px;
+width: 4px;
+background-color: var(--error-color);;
+margin: 0 8px;
+border-radius: 100%;
+position: relative;
+top: 8px;
+}
+
+
+/* BUTTONS */
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 48px;
+    border-radius: 3px;
+    margin: 5px;
+    margin-top: 8px;
+}
+.btnSignIn {
+    font-size: .875rem;
+    width: 315px;
+    height: 48px;
+    border-radius: 3px;
+    font-weight: 500;
+    background-color: #0057b8;
+    border-color: #0057b8;
+    border: none;
+    color: #fff;
+    margin-bottom: 10px;
+    padding: 16px;
+    cursor: pointer;
+}
+.btnCancel {
+    font-size: .875rem;
+    padding: 16px;
+    width: 315px;
+    height: 48px;
+    border-radius: 3px;
+    font-weight: 500;
+    border: none;
+    color: #0057b8;
+    background-color: #fff;
+    border-color: #fff;
+    margin-bottom: 50px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+form hr {
+    width: 315px;
+    height: 1px;
+    margin-top: 75px;
+    margin-bottom: 0;
+    border-top: 1px solid #cecece;
+    border-bottom: none;
+}
+
+/* Form Outer Footer */
+.form-footer {
+    /* margin-top: 60px; */
+    line-height: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+.dont-have {
+    margin-bottom: 0;
+}
+a {  
+    text-decoration: none;
+    font-weight: 400;
+    color: #0057b8;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    line-height: 1.5rem;
+}
+.footer-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 24px;
+    text-align: center;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ul {  
+    font-size: 14px;
+    margin-bottom: 0;
+    padding: 0;
+}
+li {
+    list-style: none;
+    margin-bottom: 0;
+}
+.copyright-text {
+    margin-top: 0;
+    margin-bottom: 100px;
+    font-size: .75rem;
+    line-height: 1rem;
+    text-align: center;
+}
+
+/* ERROR MESSAGE STYLING -- errorElementPassword */
+.msgErrorPass.active, .msgErrorID.active {
+    font-size: .875rem;
+    margin-bottom: 25px;
+    width: 315px;
+    height: 48px;
+    font-weight: 500;
+    border: none;
+    display: block;
+}
+.msgErrorPass, .msgErrorID {
+    display: none;
+}
+
+    
+
+.colorChange {
+        justify-content: space-between;
+        align-items: center;
+        display: flex;
+        width: 100%;
+        margin: 10px 25px 0 25px;
+        padding: 0 25px 0 25px;
+}
+.box{
+    color: #fff;
+    padding: 20px;
+    display: none;
+    margin-top: 20px;
+}
+.red{ background: #ff0000; }
+.green{ background: #228B22; }
+.blue{ background: #0000ff; }
+label{ margin-right: 15px; }
+
+/* FADE */
+.modal-backdrop {
+    opacity: .65;
+    -webkit-animation: modal-b-fade .25s ease-in-out;
+    animation: modal-b-fade .25s ease-in-out;
+}
+.modal, .modal-backdrop {
+    transition: all .25s ease-in-out;
+}
+.modal-backdrop.fade {
+    opacity: 0;
+}
+.modal-backdrop.show {
+    opacity: .65;
+}
+
+
+/* Shadow Styling */
+
+.shadow {
+    display: none;
+}
+.shadow.active {
+    display: block;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    position: absolute;
+    background-color: #000;
+    align-items: center;
+}
+
+::marker {
+    font-size: 25px;
+}
+.checkedMessageWrapper {
+    display: none;
+}
+.checkedMessageWrapper.active {
+    display: flex;
+    text-align: left;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    z-index: 1050;
+    position: absolute;
+    background-color: transparent;
+    align-items: center;
+}
+.messageWrapper {
+    background-color: #fff;
+    max-width: 560px;
+    width: 550px;
+    /*height: 350px;*/
+    padding: 30px;
+    font-size: 1rem;
+    position: relative;
+    /*transition: width 2s, height 2s; */
+}
+
+.messageWrapper ul {
+    display: flex;
+    font-size: 18px;
+    flex-direction: column;
+    text-align: left;
+    color: #212529;
+    padding: 0 18px 32px 0;
+    margin-top: 0;
+    margin-left: 20px;
+}
+.messageWrapper ul li {
+    list-style: disc;
+    line-height: 1.5;
+}
+h1.signedDetails {
+    margin: 10px 32px 20px 0;
+    font-size: 1.5rem;
+    letter-spacing: -.33px;
+    color: #1d2329;
+    font-weight: 500;
+}
+.checkButtons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+.checkButtons .btnUnCheck {
+        font-size: .875rem;
+        width: 75%;
+        height: 48px;
+        background-color: #fff;
+        border-radius: 3px;
+        border: 2px solid #0057b8;
+        font-weight: 500;
+        color: #0057b8;
+        margin-bottom: 10px;
+        margin-right: 15px;
+        cursor: pointer;   
+}
+.checkButtons .btnCheck {
+        font-size: .875rem;
+        width: 100%;
+        height: 48px;
+        background-color: #0057b8;
+        border-radius: 3px;
+        border: none;
+        font-weight: 500;
+        color: #fff;
+        margin-bottom: 10px;
+        margin-right: 15px;
+        cursor: pointer;
+}
+.checkButtons .btn:last-of-type {
+    order: -1;
+}
+
+/* STYLES FOR HIDING AND SHOWING PASSWORD */
+.forHideShowPass, .forClearID {
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+
+p.showHidePass, .ClearID {
+    display: none;
+}
+
+p.showHidePass.active {
+    display: block;
+    position: absolute;
+    z-index: 10;
+    margin-right: 10px;
+    padding: 3px;
+    font-size: .625rem;
+    padding-right: 10px;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: normal;
+}
+p.showHidePass.active a {
+    color: #1d2329;
+}
+.ClearID.active {  
+    display: block;
+    position: absolute;
+    z-index: 10;
+    margin-right: 25px;
+    padding: 3px;
+    padding-right: 10px;
+    padding-bottom: 27px;
+    font-size: 18px;
+}
+.SHOW::before {
+    content: "SHOW";
+}
+.HIDE::before {
+    content: "HIDE";
+}
+.forHideShowPass a, .forClearID a {
+    text-decoration: none;
+}
+
+    /* ERROR  WRAPPER STYLE */
+
+.error_wrapper.active {
+    margin-top: 4.0625rem;
+    opacity: 1;
+    max-width: 615px;
+    min-height: 420px;
+    background-color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* TOP Nav */
+.error_att-logo {
+    margin-top: 50px;
+}
+p.error_Msg {
+    margin-top: 0;
+    font-family: "ATT Aleck Sans Medium Regular";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 26px;
+    margin-bottom: 61px;
+    color: #1d2329;
+}
+.we_Want {
+    font-family: "ATT Aleck Sans Medium Regular";
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+.error_top-nav {
+    margin-top: 75px;
+    font-weight: 400;
+    width: 400px;
+    /*margin-bottom: 122px;*/
+    margin-left: auto;
+    margin-right: auto;
+}
+.error_top-nav h2.sign-in {
+    font-size: 26px;
+    color: #1d2329;
+    font-weight: 500;
+    line-height: 32px;
+    margin-top: 20px;
+    margin-bottom: 6px;
+}
+img.error_attLogo {
+    height: 26px;
+    margin-bottom: 4px;
+    border-style: none;
+    margin-top: 72px;
+}
+
+.error_flex-container {
+    display: flex;
+    flex-direction: column;
+}
+.error_MsgWrapper {
+    margin-bottom: 122px;
+
+}
+.error_copyright-text {
+    margin-top: 0;
+    margin-bottom: 100px;
+    font-size: .75rem;
+    line-height: 1rem;
+    text-align: center;
+}
+
+
+/* BUTTONS */
+.error_buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 48px;
+    border-radius: 3px;
+    margin-top: 8px;
+}
+.btnRec {
+    font-size: .875rem;
+    width: 100%;
+    height: 48px;
+    border-radius: 3px;
+    font-weight: 500;
+    background-color: #0057b8;
+    border-color: #0057b8;
+    border: none;
+    color: #fff;
+    margin-bottom: 10px;
+    padding: 16px;
+    cursor: pointer;
+}
+
+
+
+
+@media (min-width: 1200px) {
+    .formBG {
+        width: 400px;
+        min-height: 580px;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: space-between;
+
+    }
+}
+
+
+@media (max-width:1199.98px) {
+    .error_wrapper  {
+        width: 100%;
+        margin: unset;
+    }
+    .error_footer-content {
+        display: block;
+        max-width: unset;
+        margin-left: unset;
+        margin-right: unset;
+        line-height: 2.5;
+    }
+    .formBG {
+        margin-top: 0;
+        width: 100%;
+    }
+    .wrapper {
+        width: 100%;
+        height: auto;
+    }
+    .top-nav {
+        margin-top: 0;
+        /*padding-top: 20px;*/
+    }
+    ul {
+        font-size: .75rem;
+        line-height: 1.5rem;
+        text-align: center;
+        color: #0057b8;
+    }
+    .copyright-text {
+        font-size: .75rem;
+        line-height: 1.5rem;
+    }
+    .wrapper {
+        width: 100%;
+        min-height: 384px;
+    }
+    .footer-content {
+        display: block;
+        max-width: unset;
+        margin-left: unset;
+        margin-right: unset;
+        line-height: 2.5;
+    }
+    .wrapper .center-wrapper {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Colume Check Button */
+  
+    .checkButtons .btn:last-of-type {
+        order: 0;
+    }
+    .checkButtons {
+        display: flex;
+        flex-direction: column;
+    }
+    .checkButtons .btnCheck, 
+    .checkButtons .btnUnCheck {
+        width: 100%;
+    }
+
+}
